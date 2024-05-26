@@ -7,6 +7,7 @@
 
 ## 2. 🪂 Deploying EKS cluster
 ```sh
+cd tf/
 terraform init; terraform plan; terraform apply --auto-approve
 ```
 - Install kubectl
@@ -35,7 +36,7 @@ kubectl apply -f service.yaml
 kubectl get all
 ```
 
-## 4. 🧪 Test the gane
+## 4. 🧪 Test the game
 - Recover the LoadBalancer Ingress URL
 ```sh
 kubectl describe service mario-service
