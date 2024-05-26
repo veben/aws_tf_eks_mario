@@ -4,13 +4,13 @@
 ## 1. 📝 Preparation
 - Follow [installations](https://github.com/veben/aws_terraform_snippets/blob/main/readme.md)
 - Choose **Cloud hosting** and follow the different steps
+- Install kubectl. For that, you can follow [the official guide](https://kubernetes.io/docs/tasks/tools/)
 
 ## 2. 🪂 Deploying EKS cluster
 ```sh
 cd tf/
 terraform init; terraform plan; terraform apply --auto-approve
 ```
-- Install kubectl
 - Configure kubectl to access to the k8s cluster
 ```sh
 aws eks --profile p_lambda_deployer --region $(terraform output -raw region) update-kubeconfig \
