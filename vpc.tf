@@ -4,7 +4,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.5.1"
 
-  name = "demo-vpc"
+  name = "aws-eks-easy-cluster-tf-vpc"
 
   cidr = "10.0.0.0/16"
   azs  = slice(data.aws_availability_zones.available.names, 0, 3)
@@ -17,15 +17,15 @@ module "vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    Name        = "demo-vpc"
+    Name        = "aws-eks-easy-cluster-tf-vpc"
     Terraform   = "true"
     Environment = "dev"
   }
 
   public_subnet_tags = {
-    Name = "demo-public-subnet"
+    Name = "aws-eks-easy-cluster-tf-public-subnet"
   }
   private_subnet_tags = {
-    Name = "demo-private-subnet"
+    Name = "aws-eks-easy-cluster-tf-private-subnet"
   }
 }
