@@ -7,6 +7,7 @@
 - Install kubectl. For that, you can follow [the official guide](https://kubernetes.io/docs/tasks/tools/)
 
 ## 2. 🪂 Deploying EKS cluster
+> You need approximately 10 minutes to deploy it
 ```sh
 cd tf/
 terraform init; terraform plan; terraform apply --auto-approve
