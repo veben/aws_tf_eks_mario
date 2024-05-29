@@ -8,7 +8,6 @@
 
 ## 2. 🪂 Deploying EKS cluster
 ```sh
-cd tf/
 terraform init; terraform plan; terraform apply --auto-approve
 ```
 - Configure kubectl to access to the k8s cluster
@@ -27,7 +26,7 @@ kubectl get nodes
 ## 3. 🚀 Deploying the game
 - Deploy the `deployment` and the `service`
 ```sh
-cd ../k8s_mario
+cd k8s_mario/
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
@@ -51,6 +50,5 @@ kubectl delete deployment mario-deployment
 ```
 - Destroy the EKS cluster
 ```sh
-cd ../tf
 terraform destroy --auto-approve
 ```
