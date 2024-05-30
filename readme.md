@@ -1,12 +1,20 @@
 # Mario on AWS EKS with Terraform
 > :warning: **AWS EKS clusters cost $0.10 per hour**, so you may incur charges by running this tutorial.
 
-## 1. 📝 Preparation
+## 1. ⚙ Prerequisites
 - Follow [installations](https://github.com/veben/aws_terraform_snippets/blob/main/readme.md)
 - Choose **Cloud hosting** and follow the different steps
 - Install kubectl. For that, you can follow [the official guide](https://kubernetes.io/docs/tasks/tools/)
 
-## 2. 🪂 Deploying EKS cluster
+## 2. 📝 Preparation
+To tailor your cluster according to your requirements, create a `terraform.tfvars` file. The two most crucial variables to customize are the **region** where you want to deploy the infrastructure and the AWS **profile** that you previously defined, ensuring it has the necessary permissions.
+```plaintext
+region  = "eu-west-1"
+profile = "p-dev"
+```
+If you omit variables in this file, the default values from `variables.tf` will be applied automatically.
+
+## 3. 🪂 Deploying EKS cluster
 ```sh
 terraform init; terraform plan; terraform apply --auto-approve
 ```
@@ -22,7 +30,7 @@ kubectl cluster-info
 ```sh
 kubectl get nodes
 ```
-## 3. 🚀 Deploying the game
+## 4. 🚀 Deploying the game
 - Deploy the `deployment` and the `service`
 ```sh
 cd k8s_mario/
@@ -34,14 +42,14 @@ kubectl apply -f service.yaml
 kubectl get all
 ```
 
-## 4. 🧪 Test the game
+## 5. 🧪 Test the game
 - Recover the LoadBalancer Ingress URL
 ```sh
 kubectl describe service mario-service
 ```
 - Copy/paste the URL in a browser
 
-## 5. 🚿 Cleaning
+## 6. 🚿 Cleaning
 - Destroy the `deployment` and the `service`
 ```sh
 kubectl delete service mario-service

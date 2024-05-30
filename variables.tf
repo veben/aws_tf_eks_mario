@@ -7,7 +7,7 @@ variable "region" {
 variable "profile" {
   description = "The AWS CLI profile to use"
   type        = string
-  default     = "p_lambda_deployer"
+  default     = "p-dev"
 }
 
 variable "cluster_name" {
